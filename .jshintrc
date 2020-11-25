@@ -1,0 +1,19 @@
+{
+  "strict": true,
+  "esversion": 8,
+  "node": true,
+  "module": true,
+  "jasmine": false,
+  "browser": true,
+  "globals": {
+    "element": false,
+    "by": false,
+    "describe": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "it": false,
+    "expect": false,
+    "inject": false,
+    "angular": true
+  }
+}

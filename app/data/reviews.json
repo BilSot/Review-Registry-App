@@ -1,0 +1,43 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "title": "Test title",
+      "content": "test content",
+      "user": "Mitsos",
+      "rating": 3,
+      "votes": 4,
+      "date": ""
+    }
+  ],
+  "comments": [
+    {
+      "review_id": 1,
+      "comment_id": 1,
+      "user": "",
+      "date": "",
+      "content": ""
+    },
+    {
+      "review_id": 1,
+      "comment_id": 2,
+      "user": "",
+      "date": "",
+      "content": ""
+    },
+    {
+      "review_id": 1,
+      "comment_id": 3,
+      "user": "",
+      "date": "",
+      "content": ""
+    },
+    {
+      "review_id": 1,
+      "comment_id": 4,
+      "user": "",
+      "date": "",
+      "content": ""
+    }
+  ]
+}

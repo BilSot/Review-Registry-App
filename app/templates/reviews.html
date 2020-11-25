@@ -1,0 +1,11 @@
+<div>
+    <h1>{{title}}</h1>
+    <ul>
+        <li ng-repeat="review in reviews" ng-click="showReviewDetails()">
+            <p>{{review.title}}</p>
+            <p>{{review.content}}</p>
+            <p>{{review.user}}</p>
+            <p>{{review.rating}}</p>
+        </li>
+    </ul>
+</div>

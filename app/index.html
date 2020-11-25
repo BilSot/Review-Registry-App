@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="reviewApp">
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Review Registry App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body ng-cloak>
+<div class="container">
+    <div class="header" ng-controller="HeaderController">
+        <div class="wrapper">
+            <h1 class="branding-title">{{title}}</h1>
+            <ul class="nav">
+                <li class="">
+                    <a href="/new-feedback">Give Review</a>
+                </li>
+                <li class="">
+                    <a href="/reviews">Reviews</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <ng-view></ng-view>
+</div>
+
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-route/angular-route.js"></script>
+<script src="lib/angular-resource/angular-resource.js"></script>
+<script src="app.js"></script>
+<script src="./src/controllers/HeaderController.js"></script>
+<script src="./src/controllers/MainpageController.js"></script>
+<script src="./src/controllers/NewFeedbackController.js"></script>
+<script src="./src/controllers/ReviewsController.js"></script>
+<script src="./src/services/ReviewsDataService.js"></script>
+</body>
