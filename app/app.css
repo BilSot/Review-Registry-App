@@ -23,3 +23,18 @@
   content: "|";
   padding-right: 0.3em;
 }
+
+.glyphicon.large{
+  font-size: 55px;
+  padding-top: 30px;
+  padding-right: 15px;
+  color: burlywood;
+}
+
+.glyphicon-star.large{
+  color: gold;
+}
+
+.emojis{
+  position: absolute;
+}

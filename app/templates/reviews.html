@@ -4,8 +4,11 @@
         <li ng-repeat="review in reviews" ng-click="showReviewDetails()">
             <p>{{review.title}}</p>
             <p>{{review.content}}</p>
-            <p>{{review.user}}</p>
-            <p>{{review.rating}}</p>
+            <p>{{review.user.name}}</p>
+            <p>{{review.user.email}}</p>
+            <review-rating rating="review.rating"></review-rating>
         </li>
+        <button ng-mouseover="showEmojis()" ng-mouseleave="hideEmojis()">Hello</button>
+        <p style="font-size: 35px" ng-show="emojisShown">&#x1F620;&#x1F61E;&#x1F610;&#x1F60A;&#x1F603;</p>
     </ul>
 </div>

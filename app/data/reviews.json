@@ -4,7 +4,10 @@
       "id": 1,
       "title": "Test title",
       "content": "test content",
-      "user": "Mitsos",
+      "user": {
+        "name": "Mitsos",
+        "email": "test@test.com"
+      },
       "rating": 3,
       "votes": 4,
       "date": ""
@@ -14,28 +17,40 @@
     {
       "review_id": 1,
       "comment_id": 1,
-      "user": "",
+      "user": {
+        "name": "",
+        "email": ""
+      },
       "date": "",
       "content": ""
     },
     {
       "review_id": 1,
       "comment_id": 2,
-      "user": "",
+      "user": {
+        "name": "",
+        "email": ""
+      },
       "date": "",
       "content": ""
     },
     {
       "review_id": 1,
       "comment_id": 3,
-      "user": "",
+      "user": {
+        "name": "",
+        "email": ""
+      },
       "date": "",
       "content": ""
     },
     {
       "review_id": 1,
       "comment_id": 4,
-      "user": "",
+      "user": {
+        "name": "",
+        "email": ""
+      },
       "date": "",
       "content": ""
     }

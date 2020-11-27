@@ -1,5 +1,6 @@
 reviewApp.controller("ReviewsController", function ReviewsController($scope, ReviewsDataService, $routeParams){
     $scope.title = "Here should be the list with all the reviews";
+    $scope.emojisShown = false;
 
     ReviewsDataService.getReviews()
         .then(res => {
@@ -10,6 +11,14 @@ reviewApp.controller("ReviewsController", function ReviewsController($scope, Rev
         });
 
     $scope.showReviewDetails = function(){
-        alert("Hello");
+
     };
+
+    /*$scope.showEmojis = function(){
+        $scope.emojisShown = true;
+    };
+
+    $scope.hideEmojis = function(){
+        $scope.emojisShown = false;
+    };*/
 });
