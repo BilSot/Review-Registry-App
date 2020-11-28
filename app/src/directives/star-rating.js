@@ -4,8 +4,8 @@ reviewApp.directive('starRating', function ($compile) {
         template: '<div></div>',
         replace: true,
         scope: {
-            'showEmojisDir': '&',
-            'hideEmojisDir': '&'
+            'hideEmojisDir': '&',
+            'rating': '='
         },
         link: function (scope, element) {
             scope.rating = 0;
@@ -14,14 +14,14 @@ reviewApp.directive('starRating', function ($compile) {
             let value = 0;
             let stars = [];
             for (let i = 1; i <= max; i++) {
-                let star = angular.element('<span data-id="' + i + '" class="glyphicon large glyphicon-star-empty" ng-mouseenter="showEmoj()" ng-mouseleave="hideEmoj()"></span>');
+                let star = angular.element('<span data-id="' + i + '" class="glyphicon large glyphicon-star-empty" ng-click="rating=' + i + '" ng-mouseenter="hover('+ i + ')" ng-mouseleave="hideEmojisDir()"></span>');
                 stars.push(star);
                 el.append(star);
                 star.bind('mouseover', function () {
                     this.classList.remove('glyphicon-star-empty');
                     this.classList.add('glyphicon-star');
                     value = angular.element(this).attr('data-id');
-                    updateStars(value);
+                        updateStars(value);
                 }).bind('mouseout', function () {
                     updateStars(value);
                 });
@@ -45,13 +45,10 @@ reviewApp.directive('starRating', function ($compile) {
             $compile(el)(scope);
             element.append(el);
         },
-        controller: ['$scope', function StarRatingController($scope) {
-            $scope.showEmoj = function(){
-                this.showEmojisDir();
-            };
-
-            $scope.hideEmoj = function(){
-                this.hideEmojisDir();
+        controller: ['$scope', '$rootScope', function StarRatingController($scope) {
+            $scope.hover = function(id){
+                $scope.$parent.hoveredId = id;
+                $scope.$parent.showEmojis();
             };
         }]
     };

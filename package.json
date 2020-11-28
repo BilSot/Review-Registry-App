@@ -10,6 +10,7 @@
     "angular-loader": "^1.7.5",
     "angular-resource": "^1.8.2",
     "angular-route": "^1.7.5",
+    "angular-sanitize": "^1.8.2",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "html5-boilerplate": "0.0.1"

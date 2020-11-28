@@ -1,7 +1,8 @@
 "use strict";
 const reviewApp = angular.module('reviewApp', [
     'ngRoute',
-    'ngResource'
+    'ngResource',
+    'ngSanitize'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
     $routeProvider.when('/', {

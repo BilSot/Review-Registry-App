@@ -1,7 +1,7 @@
 <div>
     <h2>{{title}}</h2>
-    <p class="emojis" style="font-size: 35px" ng-show="emojisShown">&#x1F620;</p>
+    <p class="emojis" style="font-size: 35px" ng-show="emojisShown" ng-bind-html="emoji" test></p>
     <br/>
-    <star-rating show-emojis-dir="showEmojis()" hide-emojis-dir="hideEmojis()"></star-rating>
+    <star-rating hide-emojis-dir="hideEmojis()" rating="selectedStars"></star-rating>
     <feedback-form></feedback-form>
 </div>
