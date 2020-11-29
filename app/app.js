@@ -17,6 +17,10 @@ const reviewApp = angular.module('reviewApp', [
         templateUrl: './templates/reviews.html',
         controller: 'ReviewsController'
     });
+    $routeProvider.when('/reviews/:id', {
+        templateUrl: './templates/review-details.html',
+        controller: 'ReviewDetailsController'
+    });
     $routeProvider.otherwise({redirectTo: '/'});
 
     $locationProvider.html5Mode({

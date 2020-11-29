@@ -1,0 +1,27 @@
+<div>
+    <h2>Review Details page</h2>
+    <div ng-if="ready">
+        <h3>Review details</h3>
+        <p>{{review.title}}</p>
+        <p>{{review.content}}</p>
+        <p>{{review.user.name}}</p>
+        <p>{{review.user.email}}</p>
+        <p>{{review.date | date: 'dd/MM/yyyy'}}</p>
+        <review-rating rating="review.rating"></review-rating>
+    </div>
+    <h3>Comments</h3>
+    <ul ng-if="ready">
+        <li ng-repeat="comment in comments">
+            <p>{{comment.content}}</p>
+            <p>{{comment.user.name}}</p>
+            <p>{{comment.user.email}}</p>
+            <p>{{comment.date | date: 'dd/MM/yyyy'}}</p>
+        </li>
+    </ul>
+
+    <button ng-show="!addComment" ng-click="toggleForm()">Add comment</button>
+    <comment-form ng-show="addComment">
+        <button type="submit">Submit</button>
+        <button type="button" ng-click="toggleForm()">Cancel</button>
+    </comment-form>
+</div>

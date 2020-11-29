@@ -11,48 +11,136 @@
       "rating": 3,
       "votes": 4,
       "date": "27-11-2020"
+    },
+    {
+      "user": {
+        "name": "Barbara",
+        "email": "barbara@test.com"
+      },
+      "title": "Great app",
+      "content": "Awesome work",
+      "date": "2020-11-28T22:00:53.063Z",
+      "rating": 4,
+      "votes": 0,
+      "id": 2
+    },
+    {
+      "user": {
+        "name": "Tom",
+        "email": "tom@test.com"
+      },
+      "title": "Nice app",
+      "content": "Keep up the good work",
+      "date": "2020-11-28T23:53:03.855Z",
+      "rating": 4,
+      "votes": 0,
+      "id": 3
+    },
+    {
+      "user": {
+        "name": "Frank",
+        "email": "frank@test.com"
+      },
+      "title": "Awful",
+      "content": "It's very bad",
+      "date": "2020-11-28T23:57:24.303Z",
+      "rating": 1,
+      "votes": 0,
+      "id": 4
+    },
+    {
+      "user": {
+        "name": "Natalia",
+        "email": "natalia@test.com"
+      },
+      "title": "Great app",
+      "content": "I love it !",
+      "date": "2020-11-29T00:44:32.544Z",
+      "rating": 4,
+      "votes": 0,
+      "id": 5
     }
   ],
   "comments": [
     {
-      "review_id": 1,
-      "comment_id": 1,
       "user": {
-        "name": "",
-        "email": ""
+        "name": "Biljana",
+        "email": "biljana@test.com"
       },
-      "date": "",
-      "content": ""
+      "content": "I agree Natalia !",
+      "date": "2020-11-29T00:46:47.843Z",
+      "review_id": 5,
+      "id": 1
     },
     {
-      "review_id": 1,
-      "comment_id": 2,
       "user": {
-        "name": "",
-        "email": ""
+        "name": "Mark",
+        "email": "mark@test.com"
       },
-      "date": "",
-      "content": ""
+      "content": "They could do better",
+      "date": "2020-11-29T00:51:50.659Z",
+      "review_id": 2,
+      "id": 2
     },
     {
-      "review_id": 1,
-      "comment_id": 3,
       "user": {
-        "name": "",
-        "email": ""
+        "name": "Mark",
+        "email": "mark@test.com"
       },
-      "date": "",
-      "content": ""
+      "content": "They could do better",
+      "date": "2020-11-29T00:54:50.659Z",
+      "review_id": 3,
+      "id": 3
     },
     {
-      "review_id": 1,
-      "comment_id": 4,
       "user": {
-        "name": "",
-        "email": ""
+        "email": "test@test.com",
+        "name": "Some user"
       },
-      "date": "",
-      "content": ""
+      "content": "bla bla bla",
+      "date": "2020-11-29T00:56:18.795Z",
+      "review_id": 1,
+      "id": 4
+    },
+    {
+      "user": {
+        "name": "Barbara",
+        "email": "barbara@test.com"
+      },
+      "content": "test test test",
+      "date": "2020-11-29T01:17:04.816Z",
+      "review_id": 1,
+      "id": 5
+    },
+    {
+      "user": {
+        "name": "Bob",
+        "email": "bob@test.com"
+      },
+      "content": "I totally agree !",
+      "date": "2020-11-29T01:20:17.496Z",
+      "review_id": 4,
+      "id": 6
+    },
+    {
+      "user": {
+        "name": "Natalia",
+        "email": "natalia@test.com"
+      },
+      "content": "I agree Barbara!",
+      "date": "2020-11-29T01:25:38.591Z",
+      "review_id": 2,
+      "id": 7
+    },
+    {
+      "user": {
+        "name": "Tom",
+        "email": "tom@test.com"
+      },
+      "content": "What exactly didn't you like?",
+      "date": "2020-11-29T14:14:55.581Z",
+      "review_id": 4,
+      "id": 8
     }
   ]
 }

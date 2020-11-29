@@ -1,0 +1,14 @@
+<div>
+    <form name="commentForm" ng-submit="submitCommentForm(comment)">
+        <label for="user">Your name</label>
+        <input type="text" name="user" id="user" ng-model="comment.user.name" ng-model-options="{ updateOn: 'blur' }" placeholder="Please enter your name" required/>
+
+        <label for="email">Your email address</label>
+        <input type="email" name="email" id="email" ng-model="comment.user.email" placeholder="Please enter your email address" required/>
+
+        <label for="content">Leave your message below</label>
+        <textarea name="content" id="content" ng-model="comment.content" placeholder="Please leave your comments here..." required></textarea>
+
+        <ng-transclude></ng-transclude>
+    </form>
+</div>
