@@ -5,6 +5,7 @@ reviewApp.controller("NewFeedbackController", ['$scope', '$location', 'ReviewsDa
     $scope.emojis = ['&#x1F620;', '&#x1F61E;', '&#x1F610;', '&#x1F60A;', '&#x1F603;'];
     $scope.emoji = '';
     $scope.hoveredId = 0;
+    $scope.invalidSubmit = false;
     $scope.fields = [
         {
             name: 'name',
@@ -38,7 +39,8 @@ reviewApp.controller("NewFeedbackController", ['$scope', '$location', 'ReviewsDa
 
     $scope.submitForm = function (review) {
         if ($scope.selectedStars === 0) {
-            alert("Please give us at least one star...");
+            $scope.invalidSubmit = true;
+            // alert("Please give us at least one star...");
             return;
         }
         let newReview = {};

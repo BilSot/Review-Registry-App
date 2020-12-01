@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="app.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-cloak>
@@ -19,7 +20,7 @@
     <div class="header" ng-controller="HeaderController">
         <div class="wrapper">
             <h1 class="branding-title">{{title}}</h1>
-            <ul class="nav">
+            <ul class="nav nav-pills navMenu">
                 <li class="">
                     <a href="/new-feedback">Give Review</a>
                 </li>
@@ -30,28 +31,29 @@
         </div>
     </div>
     <ng-view></ng-view>
-
-    <footer>
-        <div>
-            <p>Created by Biljana 2020</p>
-        </div>
-    </footer>
 </div>
+
+<footer class="footer">
+    <div>
+        <p>Created by Biljana 2020</p>
+    </div>
+</footer>
 
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular-route/angular-route.js"></script>
 <script src="lib/angular-resource/angular-resource.js"></script>
 <script src="lib/angular-sanitize/angular-sanitize.js"></script>
+<script src="lib/angular-cookies/angular-cookies.js"></script>
 <script src="app.js"></script>
 <script src="./src/controllers/HeaderController.js"></script>
-<script src="./src/controllers/MainpageController.js"></script>
 <script src="./src/controllers/NewFeedbackController.js"></script>
 <script src="./src/controllers/ReviewsController.js"></script>
 <script src="./src/controllers/ReviewDetailsController.js"></script>
 <script src="./src/services/ReviewsDataService.js"></script>
 <script src="./src/directives/star-rating.js"></script>
-<script src="./src/directives/feedback-form.js"></script>
 <script src="./src/directives/review-rating.js"></script>
 <script src="./src/directives/review-thumbnail.js"></script>
 <script src="./src/directives/comment-form.js"></script>
+<script src="./src/directives/vote-review.js"></script>
+<script src="./src/directives/user-communication-form.js"></script>
 </body>

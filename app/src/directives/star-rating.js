@@ -1,10 +1,10 @@
 reviewApp.directive('starRating', function ($compile) {
     return {
         restrict: 'E',
-        template: '<div></div>',
+        template: '<div class="starRatingWidget"></div>',
         replace: true,
         scope: {
-            'hideEmojisDir': '&',
+            'hideEmojis': '&',
             'rating': '='
         },
         link: function (scope, element) {
@@ -14,20 +14,21 @@ reviewApp.directive('starRating', function ($compile) {
             let value = 0;
             let stars = [];
             for (let i = 1; i <= max; i++) {
-                let star = angular.element('<span data-id="' + i + '" class="glyphicon large glyphicon-star-empty" ng-click="rating=' + i + '" ng-mouseenter="hover('+ i + ')" ng-mouseleave="hideEmojisDir()"></span>');
+                let star = angular.element('<span data-id="' + i + '" class="glyphicon large glyphicon-star-empty" ng-click="starSelect(' + i + ')" ng-mouseenter="hover('+ i + ')" ng-mouseleave="hideEmojis()"></span>');
                 stars.push(star);
                 el.append(star);
+
                 star.bind('mouseover', function () {
                     this.classList.remove('glyphicon-star-empty');
                     this.classList.add('glyphicon-star');
                     value = angular.element(this).attr('data-id');
-                        updateStars(value);
+                        scope.updateStars(value);
                 }).bind('mouseout', function () {
-                    updateStars(value);
+                    scope.updateStars(value);
                 });
             }
 
-            function updateStars(val) {
+            scope.updateStars = function(val) {
                 for (let j = 0; j < max; j++) {
                     if (stars[j].attr('data-id') <= val) {
                         stars[j].removeClass("glyphicon-star-empty");
@@ -37,10 +38,10 @@ reviewApp.directive('starRating', function ($compile) {
                         stars[j].addClass("glyphicon-star-empty");
                     }
                 }
-            }
+            };
 
             el.bind('mouseout', function () {
-                updateStars(scope.rating);
+                scope.updateStars(scope.rating);
             });
             $compile(el)(scope);
             element.append(el);
@@ -49,6 +50,12 @@ reviewApp.directive('starRating', function ($compile) {
             $scope.hover = function(id){
                 $scope.$parent.hoveredId = id;
                 $scope.$parent.showEmojis();
+            };
+
+            $scope.starSelect = function(starId){
+                $scope.rating = starId;
+                $scope.updateStars(starId);
+                $scope.$parent.invalidSubmit = false;
             };
         }]
     };

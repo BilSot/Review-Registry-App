@@ -9,6 +9,7 @@
         <label for="content">Leave your message below</label>
         <textarea name="content" id="content" ng-model="comment.content" placeholder="Please leave your comments here..." required></textarea>
 
-        <ng-transclude></ng-transclude>
+        <button type="submit">Submit</button>
+        <button type="button" ng-click="toggleForm()">Cancel</button>
     </form>
 </div>

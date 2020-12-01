@@ -1,4 +1,38 @@
 /* app css stylesheet */
+html, body{
+  /*background-color: #fffacd4d !important;*/
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.container{
+  flex: 1;
+  margin-bottom: 1%;
+}
+
+.wrapper{
+  text-align: center;
+  margin-top: 10%;
+}
+
+.wrapper > h1{
+  color: orange;
+  font-weight: bolder;
+}
+
+.navMenu{
+  display: inline-flex;
+}
+
+.navMenu li{
+  font-size: 20px;
+  margin-right: 5%;
+}
+
+.navMenu li > a{
+  width: max-content;
+}
 
 .menu {
   list-style: none;
@@ -24,6 +58,150 @@
   padding-right: 0.3em;
 }
 
+.starRatingWidget{
+  left: 25%;
+  margin-top: 2%;
+  position: relative;
+  text-align: center;
+  width: 50%;
+}
+
+.requiredRating{
+  position: absolute;
+  color: red;
+  right: 490px;
+  top: 350px;
+}
+
+.newFeedbackWidget,
+.feedbackFormWidget{
+  margin-top: 2%;
+}
+
+.feedbackFormWidget{
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.feedbackFormWidget form label{
+  margin-left: 4px;
+  width: 100%;
+}
+
+.feedbackFormWidget input,
+.feedbackFormWidget textarea{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 11px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.feedbackFormWidget textarea{
+  height: 140px;
+}
+.requiredField{
+  color: red;
+}
+
+.reviewWidget{
+  background-color: whitesmoke;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  display: flex;
+  margin-bottom: 2%;
+  margin-right: 2%;
+}
+
+.votingWidget{
+  float: left;
+  padding: 5px 5px 0 10px;
+  position: relative;
+  height: fit-content;
+  top: 40px;
+}
+
+.votingButton span{
+  font-size: 20px;
+  left: 5px;
+  position: relative;
+}
+
+.votingButton span[id^='downvote']{
+  top: 6px;
+  left: 3px;
+}
+
+.badge.reviewBadge{
+  background-color: #556080 !important;
+  font-size: 16px !important;
+  font-weight: 700;
+  line-height: 1.5;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.reviewThumbWidget{
+  float: right;
+  margin: 0 15px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.reviewThumbWidget a:hover{
+  text-decoration: none;
+}
+
+.reviewHeader{
+  border-bottom: 2px solid;
+}
+
+.reviewRating{
+  margin-top: 10px;
+}
+
+.userAvatar{
+  margin-top: 12px;
+  width: fit-content;
+}
+
+.reviewTitle{
+  /*margin-left: 15px;*/
+  /*position: relative;*/
+  /*left: -100px;*/
+}
+
+.reviewDate{
+  text-align: end;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.reviewBody{
+  font-size: 18px;
+  font-style: italic;
+  border: 1px solid darkgray;
+  height: 170px;
+  background-color: #f8f8f8;
+  padding-left: 10px;
+}
+
+.reviewUserInfo{
+  margin-top: 12px;
+}
+
 .glyphicon.large{
   font-size: 55px;
   padding-top: 30px;
@@ -31,10 +209,36 @@
   color: burlywood;
 }
 
-.glyphicon-star.large{
+.glyphicon-star.large,
+.glyphicon-star.small
+{
   color: burlywood;
+}
+
+.glyphicon-star.small.gray{
+  color: gray;
 }
 
 .emojis{
   position: absolute;
+}
+
+.upvoted span[id^='upvote']{
+  color: green;
+}
+
+.downvoted span[id^='downvote']{
+  color: red;
+}
+
+footer {
+  background: #42A5F5;
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding-top: 1%;
+}
+
+.col-lg-1{
+  padding: 0 !important;
 }

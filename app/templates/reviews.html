@@ -1,9 +1,12 @@
-<div>
-    <h1>{{title}}</h1>
+<div style="margin-top: 15px">
     <ul>
-        <li ng-repeat="review in reviews">
-            <review-thumbnail review="review"></review-thumbnail>
+        <li ng-repeat="review in reviews" class="reviewWidget">
+            <div class="votingWidget">
+                <vote-review id="{{$index}}" review="review" count="review.votes"></vote-review>
+            </div>
+            <div class="reviewThumbWidget">
+                <review-thumbnail review="review"></review-thumbnail>
+            </div>
         </li>
-        <p style="font-size: 35px" ng-show="emojisShown">&#x1F620;&#x1F61E;&#x1F610;&#x1F60A;&#x1F603;</p>
     </ul>
 </div>

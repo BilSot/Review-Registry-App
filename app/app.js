@@ -2,12 +2,11 @@
 const reviewApp = angular.module('reviewApp', [
     'ngRoute',
     'ngResource',
-    'ngSanitize'
+    'ngSanitize',
+    'ngCookies'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
     $routeProvider.when('/', {
-        templateUrl: './templates/main-page.html',
-        controller: 'MainpageController'
     });
     $routeProvider.when('/new-feedback', {
         templateUrl: './templates/new-feedback.html',

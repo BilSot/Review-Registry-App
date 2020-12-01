@@ -1,0 +1,13 @@
+<form name="communicationForm" ng-submit="submitForm(communication)">
+    <div ng-repeat="field in fields">
+        <label for="{{field.name}}">{{field.label}} <span ng-show="field.required"
+                                                          class="requiredField">*</span></label>
+        <input ng-show="field.type !== 'textarea'" type="{{field.type}}" name="{{field.name}}" id="{{field.name}}"
+               ng-model="communication[field.name]" placeholder="{{field.placeholder}}" ng-required="{{field.required}}"/>
+        <textarea ng-show="field.type === 'textarea'" name="field.name" id="{{field.name}}"
+                  ng-model="communication[field.name]" placeholder="{{field.placeholder}}"
+                  ng-required="{{field.required}}"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <ng-transclude></ng-transclude>
+</form>

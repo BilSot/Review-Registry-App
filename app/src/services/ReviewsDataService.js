@@ -34,6 +34,15 @@ reviewApp.factory("ReviewsDataService", function ($http) {
                     'Content-Type': 'application/json'
                 }
             });
+        },
+
+        registerVote: function(review){
+            console.log(review);
+            return $http({
+                method: 'PUT',
+                url: 'api/reviews',
+                data: review
+            });
         }
     };
 });

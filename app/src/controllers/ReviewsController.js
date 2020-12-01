@@ -1,6 +1,6 @@
-reviewApp.controller("ReviewsController", function ReviewsController($scope, ReviewsDataService, $routeParams){
-    $scope.title = "Here should be the list with all the reviews";
+reviewApp.controller("ReviewsController", function ReviewsController($scope, ReviewsDataService, $routeParams) {
     $scope.emojisShown = false;
+    $scope.classVoted = '';
 
     ReviewsDataService.getReviews()
         .then(res => {
@@ -10,15 +10,16 @@ reviewApp.controller("ReviewsController", function ReviewsController($scope, Rev
             console.err("Error: ", err);
         });
 
-    $scope.showReviewDetails = function(){
+    $scope.showReviewDetails = function () {
 
     };
 
-    /*$scope.showEmojis = function(){
-        $scope.emojisShown = true;
+    $scope.registerVote = function (review) {
+        $scope.classVoted = 'voted';
+        ReviewsDataService.registerVote(review)
+            .then(res => {
+              // console.log(res.data.message);
+            })
+            .catch(err => console.error(err));
     };
-
-    $scope.hideEmojis = function(){
-        $scope.emojisShown = false;
-    };*/
 });
