@@ -1,17 +1,15 @@
-<div>
+<div class="feedbackFormWidget">
     <form name="feedbackForm" ng-submit="submitForm(review)">
-        <label for="user">Your name</label>
-        <input type="text" name="user" id="user" ng-model="review.user.name" ng-model-options="{ updateOn: 'blur' }" placeholder="Please enter your name" required/>
+        <div ng-repeat="field in fields">
+            <label for="{{field.name}}">{{field.label}} <span ng-show="field.required"
+                                                              class="requiredField">*</span></label>
+            <input ng-show="field.type !== 'textarea'" type="{{field.type}}" name="{{field.name}}" id="{{field.name}}"
+                   ng-model="review[field.name]" placeholder="{{field.placeholder}}" ng-required="{{field.required}}"/>
+            <textarea ng-show="field.type === 'textarea'" name="field.name" id="{{field.name}}"
+                      ng-model="review[field.name]" placeholder="{{field.placeholder}}"
+                      ng-required="{{field.required}}"></textarea>
+        </div>
 
-        <label for="email">Your email address</label>
-        <input type="email" name="email" id="email" ng-model="review.user.email" placeholder="Please enter your email address" required/>
-
-        <label for="title">Title of your review</label>
-        <input type="text" name="title" id="title" ng-model="review.title" placeholder="Please enter a title" required/>
-
-        <label for="content">Leave your message below</label>
-        <textarea name="content" id="content" ng-model="review.content" placeholder="Please leave your comments here..." required></textarea>
-
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
