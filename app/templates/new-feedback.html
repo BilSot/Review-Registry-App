@@ -1,8 +1,7 @@
-<div class="newFeedbackWidget" test>
-    <p class="emojis" style="font-size: 45px" ng-show="emojisShown" ng-bind-html="emoji"></p>
-    <br/>
-    <star-rating hide-emojis="hideEmojis()" rating="selectedStars"></star-rating>
-    <span class="requiredRating" ng-show="invalidSubmit">Please give us at least one star...</span>
+<div class="newFeedbackWidget">
+    <p class="requiredRating" ng-show="invalidSubmit">Please give us at least one star...</p>
+    <p class="emojis" ng-bind-html="emoji"></p>
+    <star-rating on-click="setStarRate(starId)"></star-rating>
     <div class="feedbackFormWidget">
         <user-communication-form communication="review" fields="fields"></user-communication-form>
     </div>

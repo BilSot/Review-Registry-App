@@ -13,7 +13,7 @@ html, body{
 
 .wrapper{
   text-align: center;
-  margin-top: 10%;
+  margin-top: 4%;
 }
 
 .wrapper > h1{
@@ -59,18 +59,17 @@ html, body{
 }
 
 .starRatingWidget{
-  left: 25%;
-  margin-top: 2%;
-  position: relative;
+  margin: 0 auto;
   text-align: center;
   width: 50%;
 }
 
 .requiredRating{
-  position: absolute;
+  margin: 0 auto;
   color: red;
-  right: 490px;
-  top: 350px;
+  text-align: center;
+  /*right: 490px;
+  top: 350px;*/
 }
 
 .newFeedbackWidget,
@@ -78,9 +77,10 @@ html, body{
   margin-top: 2%;
 }
 
-.feedbackFormWidget{
+.feedbackFormWidget {
   border-radius: 5px;
   background-color: #f2f2f2;
+  margin: 0 auto;
   padding: 10px;
   width: 45%;
   display: flex;
@@ -105,8 +105,43 @@ html, body{
 .feedbackFormWidget textarea{
   height: 140px;
 }
+
+.feedbackFormWidget.commentFormWidget{
+  background-color: whitesmoke;
+  border: 1px solid darkgray;
+  margin: 0;
+}
+
+.feedbackFormWidget.commentFormWidget label{
+  font-size: 12px;
+}
+
+.feedbackFormWidget.commentFormWidget input,
+.feedbackFormWidget.commentFormWidget textarea{
+  padding: 4px;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
 .requiredField{
   color: red;
+}
+
+.sortingReviews{
+  color: #556080;
+  margin-top: 10px;
+  padding-left: 40px;
+}
+
+.sortingReviews span{
+  font-size: 16px;
+  font-style: italic;
+  margin-right: 5px;
+}
+
+.sortingReviews select{
+  padding: 5px;
+  font-size: 18px;
 }
 
 .reviewWidget{
@@ -115,7 +150,6 @@ html, body{
   border-radius: 5px;
   display: flex;
   margin-bottom: 2%;
-  margin-right: 2%;
 }
 
 .votingWidget{
@@ -172,12 +206,6 @@ html, body{
   width: fit-content;
 }
 
-.reviewTitle{
-  /*margin-left: 15px;*/
-  /*position: relative;*/
-  /*left: -100px;*/
-}
-
 .reviewDate{
   text-align: end;
 }
@@ -190,22 +218,90 @@ html, body{
 }
 
 .reviewBody{
+  background-color: #f8f8f8;
+  border: 1px solid darkgray;
+  color: #454545;
+  height: 170px;
   font-size: 18px;
   font-style: italic;
-  border: 1px solid darkgray;
-  height: 170px;
-  background-color: #f8f8f8;
   padding-left: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.reviewBodyDetails{
+  border: 1px solid darkgray;
+  background-color: #f8f8f8;
+  color: #454545;
+  font-size: 18px;
+  font-style: italic;
+  min-height: 170px;
+  padding-left: 10px;
+  overflow: unset;
+}
+
+.reviewBody:before{
+  content:'';
+  width:100%;
+  height:100%;
+  position:absolute;
+  left:0;
+  top:0;
+  background:linear-gradient(transparent 100px, white);
 }
 
 .reviewUserInfo{
   margin-top: 12px;
 }
 
+.userAvatarSmall{
+  float: left;
+  margin: 6px;
+  height: 100%;
+}
+
+.commentText > p > span{
+  font-weight: bold;
+  font-style: italic;
+  color: black;
+}
+
+.commentText > p{
+  color: #999999;
+  margin-bottom: 4px;
+}
+
+.commentWidget{
+  border-top: 2px solid steelblue;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: grid;
+  grid-template-columns: 44px auto;
+  grid-template-rows: auto;
+}
+
+.commentRating .commentVote{
+  font-size: 18px;
+  padding-right: 3px;
+}
+
+.commentRating span[id^='upvote'],
+.commentRating span[id^='downvote']{
+  cursor: pointer;
+}
+
+.addCommentButton {
+  margin-top: 5px;
+}
+
+.cancelButton{
+  border-color: darkgray !important;
+  background-color: aliceblue;
+}
+
 .glyphicon.large{
   font-size: 55px;
-  padding-top: 30px;
-  padding-right: 15px;
+  padding: 8px;
   color: burlywood;
 }
 
@@ -220,7 +316,10 @@ html, body{
 }
 
 .emojis{
-  position: absolute;
+  margin: 0 auto;
+  font-size: 45px;
+  min-height: 64px;
+  text-align: center;
 }
 
 .upvoted span[id^='upvote']{

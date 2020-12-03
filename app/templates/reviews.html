@@ -1,6 +1,13 @@
+<div class="sortingReviews"><span>Sorting</span>
+    <select ng-model="sortReviewsBy">
+        <option selected value="date">Newest first</option>
+        <option value="votes">Highest voted</option>
+        <option value="rating">Best rated</option>
+    </select>
+</div>
 <div style="margin-top: 15px">
     <ul>
-        <li ng-repeat="review in reviews" class="reviewWidget">
+        <li ng-repeat="review in reviews | orderBy: sortReviewsBy : true" class="reviewWidget">
             <div class="votingWidget">
                 <vote-review id="{{$index}}" review="review" count="review.votes"></vote-review>
             </div>

@@ -1,10 +1,9 @@
 reviewApp.controller("NewFeedbackController", ['$scope', '$location', 'ReviewsDataService', '$filter', function NewFeedbackController($scope, $location, ReviewsDataService, $filter) {
-    $scope.emojisShown = false;
+    let fooBar = 0;
     $scope.review = {};
     $scope.selectedStars = 0;
-    $scope.emojis = ['&#x1F620;', '&#x1F61E;', '&#x1F610;', '&#x1F60A;', '&#x1F603;'];
+    $scope.emojis = [ '&#x1F620;', '&#x1F61E;', '&#x1F610;', '&#x1F60A;', '&#x1F603;'];
     $scope.emoji = '';
-    $scope.hoveredId = 0;
     $scope.invalidSubmit = false;
     $scope.fields = [
         {
@@ -40,6 +39,8 @@ reviewApp.controller("NewFeedbackController", ['$scope', '$location', 'ReviewsDa
     $scope.submitForm = function (review) {
         if ($scope.selectedStars === 0) {
             $scope.invalidSubmit = true;
+            //Zero stars??? We cry cry cry!
+            $scope.emoji = '&#x1F62D;';
             // alert("Please give us at least one star...");
             return;
         }
@@ -63,29 +64,18 @@ reviewApp.controller("NewFeedbackController", ['$scope', '$location', 'ReviewsDa
                 console.error(err);
             });
     };
-    $scope.showEmojis = function () {
-        $scope.emoji = $scope.emojis[$scope.hoveredId - 1];
-        $scope.emojisShown = true;
+
+    $scope.showEmojis = function (hoveredId) {
+        $scope.emoji = $scope.emojis[hoveredId - 1];
+    };
+
+    $scope.setStarRate = function (selectedId) {
+        $scope.emoji = $scope.emojis[selectedId - 1];
+        $scope.invalidSubmit = false;
+        $scope.selectedStars = selectedId;
     };
 
     $scope.hideEmojis = function () {
-        $scope.hoveredId = 0;
         $scope.emoji = '';
-        $scope.emojisShown = false;
     };
-}]).directive('test', function () {
-    return {
-        restrict: 'A',
-        link: function (scope, element) {
-            let offsetLeft = $('.starRatingWidget').offset();
-            let starsWidth = $('.glyphicon').css('width');
-            let emojiMarginLeft = offsetLeft.left + 'px';
-            $('.emojis').css({'margin-left': emojiMarginLeft});
-            // console.log(parseInt($('.container').css('width')) / 4 + 'px');
-            let feedbackFormMarginLeft = parseInt($('.container').css('width')) / 4;
-            $('.feedbackFormWidget').css({left: feedbackFormMarginLeft, position: 'relative'});
-            let buttonLeftPosition = parseInt($('.feedbackFormWidget').css('width')) / 2;
-            $('.feedbackFormWidget button').css({left: buttonLeftPosition, position: 'relative'});
-        }
-    };
-});
+}]);

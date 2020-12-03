@@ -43,6 +43,14 @@ reviewApp.factory("ReviewsDataService", function ($http) {
                 url: 'api/reviews',
                 data: review
             });
+        },
+
+        registerCommentVote: function(comment){
+            return $http({
+                method: 'PUT',
+                url: 'api/comments',
+                data: comment
+            });
         }
     };
 });

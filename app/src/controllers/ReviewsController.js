@@ -1,6 +1,10 @@
-reviewApp.controller("ReviewsController", function ReviewsController($scope, ReviewsDataService, $routeParams) {
+reviewApp.controller("ReviewsController", ['$scope', 'ReviewsDataService', '$routeParams', 'dateFilter', function ReviewsController($scope, ReviewsDataService, $routeParams, dateFilter) {
     $scope.emojisShown = false;
     $scope.classVoted = '';
+    $scope.sortReviewsBy = 'date';
+    if($scope.sortReviewsBy === 'date'){
+        dateFilter();
+    }
 
     ReviewsDataService.getReviews()
         .then(res => {
@@ -10,10 +14,6 @@ reviewApp.controller("ReviewsController", function ReviewsController($scope, Rev
             console.err("Error: ", err);
         });
 
-    $scope.showReviewDetails = function () {
-
-    };
-
     $scope.registerVote = function (review) {
         $scope.classVoted = 'voted';
         ReviewsDataService.registerVote(review)
@@ -22,4 +22,4 @@ reviewApp.controller("ReviewsController", function ReviewsController($scope, Rev
             })
             .catch(err => console.error(err));
     };
-});
+}]);

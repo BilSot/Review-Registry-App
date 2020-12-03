@@ -83,8 +83,6 @@ router.post('/comments', (req, res, next) => {
 });
 
 router.put('/reviews', (req, res, next) => {
-    console.log(typeof  req.body);
-    console.log(req.body);
     let reviews = fs.readFileSync('app/data/reviews.json', 'utf-8');
     const reviewsArray = JSON.parse(reviews).reviews;
     const commentsArray = JSON.parse(reviews).comments;
@@ -95,6 +93,26 @@ router.put('/reviews', (req, res, next) => {
         JSON.stringify({
             "reviews": updatedReviewsArray,
             "comments": commentsArray
+        }),
+        (err) => {
+            if (err) next(err);
+            res.send({message: "Vote registered"});
+        });
+});
+
+router.put('/comments', (req, res, next) => {
+    console.log(typeof  req.body);
+    console.log(req.body);
+    let reviews = fs.readFileSync('app/data/reviews.json', 'utf-8');
+    const reviewsArray = JSON.parse(reviews).reviews;
+    const commentsArray = JSON.parse(reviews).comments;
+    let updatedCommentIndex = commentsArray.map(comment => comment.id).indexOf(req.body.id);
+    let updatedCommentsArray = [...commentsArray.slice(0, updatedCommentIndex), req.body, ...commentsArray.slice(updatedCommentIndex + 1)];
+
+    fs.writeFile('app/data/reviews.json',
+        JSON.stringify({
+            "reviews": reviewsArray,
+            "comments": updatedCommentsArray
         }),
         (err) => {
             if (err) next(err);

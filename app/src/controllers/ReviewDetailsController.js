@@ -36,6 +36,20 @@ reviewApp.controller('ReviewDetailsController', ['$scope', 'ReviewsDataService',
 
         });
 
+    $scope.addVote = function(comment, type){
+        if(type === 'upvote') {
+            comment.upvotes += 1;
+        }else if(type === 'downvote'){
+            comment.downvotes += 1;
+        }
+
+        ReviewsDataService.registerCommentVote(comment)
+            .then(res => {
+
+            })
+            .catch(err => console.error(err));
+    };
+
     $scope.toggleForm = function(){
         $scope.addComment = !$scope.addComment;
     };
@@ -48,6 +62,8 @@ reviewApp.controller('ReviewDetailsController', ['$scope', 'ReviewsDataService',
         newComment.content = comment.content;
         newComment.date = new Date();
         newComment.review_id = parseInt($routeParams.id);
+        newComment.upvotes = 0;
+        newComment.downvotes = 0;
         ReviewsDataService.submitComment(newComment)
             .then(res => {
                 if(res.status === 200){

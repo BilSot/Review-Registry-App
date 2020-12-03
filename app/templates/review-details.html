@@ -1,31 +1,51 @@
 <div style="margin-top: 15px">
     <div ng-if="ready">
-        <div class="row reviewDetailsWidget">
-            <div class="row">
-                <review-rating class="col-sm-2" rating="review.rating"></review-rating>
-                <h3 class="reviewTitle col-sm-4">{{review.title}}</h3>
-                <p class="reviewDate col-sm-2">{{review.date | date: 'dd/MM/yyyy HH:mm:ss'}}</p>
-            </div>
-            <div class="reviewBody row">
-                <div class="col-sm-8">{{review.content}}</div>
-            </div>
-            <div class="row reviewUserInfo">
-                <h4 class="col-sm-2">{{review.user.name}}</h4>
-                <h5 class="col-sm-2">{{review.user.email}}</h5>
+        <div class="reviewWidget" style="color: #428bca">
+            <div class="reviewThumbWidget">
+                <div class="row reviewHeader vertical-align">
+                    <review-rating class="col-lg-1 col-md-2 col-sm-3 col-xs-3" rating="review.rating"></review-rating>
+                    <h3 class="reviewTitle col-lg-9 col-md-8 col-sm-7 col-xs-7">{{review.title}}</h3>
+                    <h5 class="reviewDate col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        {{review.date | date: 'dd/MM/yyyy HH:mm:ss'}}</h5>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1 col-md-2 col-sm-3 userAvatar">
+                        <img ng-src="../images/user.png">
+                        <h4>{{review.user.name}}</h4>
+                    </div>
+                    <div class="col-lg-11 col-md-10 col-sm-8 reviewUserInfo">
+                        <p class="reviewBodyDetails">{{review.content}}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <h3>Comments</h3>
-    <ul ng-if="ready">
-        <li ng-repeat="comment in comments">
-            <p>{{comment.content}}</p>
-            <p>{{comment.user.name}}</p>
-            <p>{{comment.date | date: 'dd/MM/yyyy'}}</p>
-        </li>
-    </ul>
+    <div ng-if="ready" class="commentWidgetContainer">
+        <div ng-repeat="comment in comments" class="commentWidget">
+            <div class="userAvatarSmall">
+                <img ng-src="../images/user-32.png"/>
+            </div>
+            <div class="commentText">
+                <p><span>{{comment.user.name}}</span> wrote on {{comment.date | date: 'dd/MM/yyyy HH:mm'}}</p>
+                <div>
+                    <p>{{comment.content}}</p>
+                </div>
+                <div class="commentRating">
+                    <span class="commentVote">{{comment.upvotes}}</span>
+                    <span class="commentVote" id="upvote-{{$index}}" ng-click="addVote(comment, 'upvote')">&#x1F44D;</span>
+                    <span class="commentVote">|</span>
+                    <span class="commentVote" id="downvote-{{$index}}" ng-click="addVote(comment, 'downvote')">&#x1F44E;</span>
+                    <span class="commentVote">{{comment.downvotes}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <button ng-show="!addComment" ng-click="toggleForm()">Add comment</button>
-    <user-communication-form ng-show="addComment" communication="comment" fields="fields">
-        <button class="btn btn-secondary" ng-show="addComment" ng-click="toggleForm()">Cancel</button>
-    </user-communication-form>
+    <button class="addCommentButton" ng-show="!addComment" ng-click="toggleForm()">Add comment</button>
+    <div class="feedbackFormWidget commentFormWidget" ng-show="addComment">
+        <user-communication-form communication="comment" fields="fields">
+            <button type="button" class="btn btn-secondary cancelButton" ng-show="addComment" ng-click="toggleForm()">Cancel</button>
+        </user-communication-form>
+    </div>
 </div>
