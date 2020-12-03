@@ -1,4 +1,4 @@
-reviewApp.directive('reviewRating', function ($compile){
+reviewApp.directive('reviewRating', function (){
    return{
        restrict: 'E',
        replace: true,
@@ -14,8 +14,6 @@ reviewApp.directive('reviewRating', function ($compile){
                spanElem.addClass(glyphiconClass);
                star.append(spanElem);
            }
-
-           // $compile(star)(scope);
            element.append(star);
        }
    };

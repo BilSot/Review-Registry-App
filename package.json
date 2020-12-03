@@ -7,9 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "angular": "^1.8.2",
-    "angular-cookies": "^1.8.2",
     "angular-loader": "^1.7.5",
-    "angular-resource": "^1.8.2",
     "angular-route": "^1.7.5",
     "angular-sanitize": "^1.8.2",
     "body-parser": "^1.19.0",

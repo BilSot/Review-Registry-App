@@ -15,7 +15,7 @@ reviewApp.directive('voteReview', function () {
                     review.votes = newVote;
                     element.addClass('upvoted');
                     element.attr('isVoted', 'true');
-                    scope.$parent.registerVote(review);
+                    scope.$parent.addReviewVote(review);
                 }
             };
             scope.downvote = function (review) {
@@ -24,7 +24,7 @@ reviewApp.directive('voteReview', function () {
                     review.votes = newVote;
                     element.addClass('downvoted');
                     element.attr('isVoted', 'true');
-                    scope.$parent.registerVote(review);
+                    scope.$parent.addReviewVote(review);
                 }
             };
         }

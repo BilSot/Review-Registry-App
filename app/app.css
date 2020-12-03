@@ -288,6 +288,13 @@ html, body{
 .commentRating span[id^='upvote'],
 .commentRating span[id^='downvote']{
   cursor: pointer;
+  filter: grayscale(1);
+}
+
+.commentRating.voted .thumbUp,
+.commentRating.voted .thumbDown
+{
+  filter: none;
 }
 
 .addCommentButton {

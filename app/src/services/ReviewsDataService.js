@@ -37,7 +37,6 @@ reviewApp.factory("ReviewsDataService", function ($http) {
         },
 
         registerVote: function(review){
-            console.log(review);
             return $http({
                 method: 'PUT',
                 url: 'api/reviews',

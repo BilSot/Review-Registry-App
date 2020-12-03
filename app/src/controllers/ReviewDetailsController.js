@@ -1,4 +1,4 @@
-reviewApp.controller('ReviewDetailsController', ['$scope', 'ReviewsDataService', '$routeParams', '$location', function ReviewDetailsController($scope, ReviewsDataService, $routeParams, $location){
+reviewApp.controller('ReviewDetailsController', ['$scope', 'ReviewsDataService', '$routeParams', '$location', '$window', function ReviewDetailsController($scope, ReviewsDataService, $routeParams, $location, $window) {
     $scope.ready = false;
     $scope.addComment = false;
     $scope.comment = {};
@@ -33,28 +33,25 @@ reviewApp.controller('ReviewDetailsController', ['$scope', 'ReviewsDataService',
             $scope.ready = true;
         })
         .catch(err => {
-
+            $location.url(`/${err.status}`);
         });
 
-    $scope.addVote = function(comment, type){
-        if(type === 'upvote') {
-            comment.upvotes += 1;
-        }else if(type === 'downvote'){
-            comment.downvotes += 1;
-        }
-
+    $scope.addCommentVote = function (comment) {
         ReviewsDataService.registerCommentVote(comment)
             .then(res => {
 
             })
-            .catch(err => console.error(err));
+            .catch(err => {
+                alert("Your comment can not be submitted at the moment. Please try again later");
+                $location.url('/reviews');
+            });
     };
 
-    $scope.toggleForm = function(){
+    $scope.toggleForm = function () {
         $scope.addComment = !$scope.addComment;
     };
 
-    $scope.submitForm = function(comment){
+    $scope.submitForm = function (comment) {
         let newComment = {};
         newComment.user = {};
         newComment.user.name = comment.name;
@@ -66,15 +63,14 @@ reviewApp.controller('ReviewDetailsController', ['$scope', 'ReviewsDataService',
         newComment.downvotes = 0;
         ReviewsDataService.submitComment(newComment)
             .then(res => {
-                if(res.status === 200){
+                if (res.status === 200) {
                     $scope.addComment = false;
                     $scope.comments = res.data.reviewComments;
                     $scope.comment = {};
                 }
             })
             .catch(err => {
-                alert("Your comment can not be submitted at the moment. Please try again later");
-                $location.url('/reviews');
+                $location.url(`/${err.status}`);
             });
     };
 }]);

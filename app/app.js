@@ -1,9 +1,7 @@
 "use strict";
 const reviewApp = angular.module('reviewApp', [
     'ngRoute',
-    'ngResource',
-    'ngSanitize',
-    'ngCookies'
+    'ngSanitize'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
     $routeProvider.when('/', {
@@ -19,6 +17,14 @@ const reviewApp = angular.module('reviewApp', [
     $routeProvider.when('/reviews/:id', {
         templateUrl: './templates/review-details.html',
         controller: 'ReviewDetailsController'
+    });
+    $routeProvider.when('/404', {
+        templateUrl: './templates/404.html',
+        controller: ''
+    });
+    $routeProvider.when('/500', {
+        templateUrl: './templates/500.html',
+        controller: ''
     });
     $routeProvider.otherwise({redirectTo: '/'});
 

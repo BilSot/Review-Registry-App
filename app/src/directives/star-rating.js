@@ -45,7 +45,7 @@ reviewApp.directive('starRating', function ($compile) {
             $compile(parentSpan)(scope);
             element.append(parentSpan);
         },
-        controller: ['$scope', '$rootScope', function StarRatingController($scope) {
+        controller: ['$scope', function StarRatingController($scope) {
             $scope.hover = function(id){
                 if ($scope.rating === 0) {
                     $scope.$parent.showEmojis(id);

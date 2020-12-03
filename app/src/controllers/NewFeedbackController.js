@@ -1,5 +1,4 @@
 reviewApp.controller("NewFeedbackController", ['$scope', '$location', 'ReviewsDataService', '$filter', function NewFeedbackController($scope, $location, ReviewsDataService, $filter) {
-    let fooBar = 0;
     $scope.review = {};
     $scope.selectedStars = 0;
     $scope.emojis = [ '&#x1F620;', '&#x1F61E;', '&#x1F610;', '&#x1F60A;', '&#x1F603;'];
@@ -41,7 +40,6 @@ reviewApp.controller("NewFeedbackController", ['$scope', '$location', 'ReviewsDa
             $scope.invalidSubmit = true;
             //Zero stars??? We cry cry cry!
             $scope.emoji = '&#x1F62D;';
-            // alert("Please give us at least one star...");
             return;
         }
         let newReview = {};
@@ -60,8 +58,7 @@ reviewApp.controller("NewFeedbackController", ['$scope', '$location', 'ReviewsDa
                 }
             })
             .catch(err => {
-                alert("Your review can not be submitted at the moment. Please try again later");
-                console.error(err);
+                $location.url(`/${err.status}`);
             });
     };
 

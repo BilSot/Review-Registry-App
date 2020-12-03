@@ -31,13 +31,7 @@
                 <div>
                     <p>{{comment.content}}</p>
                 </div>
-                <div class="commentRating">
-                    <span class="commentVote">{{comment.upvotes}}</span>
-                    <span class="commentVote" id="upvote-{{$index}}" ng-click="addVote(comment, 'upvote')">&#x1F44D;</span>
-                    <span class="commentVote">|</span>
-                    <span class="commentVote" id="downvote-{{$index}}" ng-click="addVote(comment, 'downvote')">&#x1F44E;</span>
-                    <span class="commentVote">{{comment.downvotes}}</span>
-                </div>
+                <vote-comment id="{{$index}}" comment="comment" register-comment-vote="addCommentVote(comment)"></vote-comment>
             </div>
         </div>
     </div>

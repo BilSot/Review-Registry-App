@@ -1,4 +1,4 @@
-reviewApp.controller("ReviewsController", ['$scope', 'ReviewsDataService', '$routeParams', 'dateFilter', function ReviewsController($scope, ReviewsDataService, $routeParams, dateFilter) {
+reviewApp.controller("ReviewsController", ['$scope', 'ReviewsDataService', '$routeParams', '$location', '$window', 'dateFilter', function ReviewsController($scope, ReviewsDataService, $routeParams, $location, $window, dateFilter) {
     $scope.emojisShown = false;
     $scope.classVoted = '';
     $scope.sortReviewsBy = 'date';
@@ -11,15 +11,16 @@ reviewApp.controller("ReviewsController", ['$scope', 'ReviewsDataService', '$rou
             $scope.reviews = res.data.reviews;
         })
         .catch(err => {
-            console.err("Error: ", err);
+            $location.url(`/${err.status}`);
         });
 
-    $scope.registerVote = function (review) {
-        $scope.classVoted = 'voted';
+    $scope.addReviewVote = function (review) {
         ReviewsDataService.registerVote(review)
             .then(res => {
-              // console.log(res.data.message);
             })
-            .catch(err => console.error(err));
+            .catch(err => {
+                alert("Your vote can not be registered at the moment. Please try again later");
+                $window.location.reload();
+            });
     };
 }]);

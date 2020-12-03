@@ -2,17 +2,34 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 
-router.get('/reviews', (req, res, next) => {
+function readJsonFile(res){
     let reviews = fs.readFileSync('app/data/reviews.json', 'utf-8');
-    // console.log("Reviews: ", JSON.parse(reviews).reviews);
     res.setHeader('Content-Type', 'application/json');
+    return reviews;
+}
+
+router.get('/reviews', (req, res, next) => {
+    let reviews;
+    try {
+        reviews = readJsonFile(res);
+
+    }catch(err){
+        console.error(err);
+        next(err);
+    };
     res.send(reviews);
     res.end();
 });
 
 router.get('/reviews/:id', (req, res, next) => {
-    let reviews = fs.readFileSync('app/data/reviews.json', 'utf-8');
-    res.setHeader('Content-Type', 'application/json');
+    let reviews;
+    try {
+        reviews = readJsonFile(res);
+
+    }catch(err){
+        console.error(err);
+        next(err);
+    };
     const reviewsArray = JSON.parse(reviews).reviews;
     const commentsArray = JSON.parse(reviews).comments;
     let requestedReview = {};
@@ -21,6 +38,11 @@ router.get('/reviews/:id', (req, res, next) => {
         if (review.id === parseInt(req.params.id)) {
             requestedReview = review;
         }
+    }
+    if (!requestedReview.id) {
+        let err = new Error();
+        err.status = 404;
+        next(err);
     }
 
     let reviewComments = commentsArray.filter(comment => {
@@ -37,7 +59,14 @@ router.get('/reviews/:id', (req, res, next) => {
 });
 
 router.post('/reviews', (req, res, next) => {
-    let reviews = fs.readFileSync('app/data/reviews.json', 'utf-8');
+    let reviews;
+    try {
+        reviews = readJsonFile(res);
+
+    }catch(err){
+        console.error(err);
+        next(err);
+    };
     const reviewsArray = JSON.parse(reviews).reviews;
     const commentsArray = JSON.parse(reviews).comments;
     let lastId = reviewsArray.length > 0 ? reviewsArray[reviewsArray.length - 1].id : 0;
@@ -52,14 +81,24 @@ router.post('/reviews', (req, res, next) => {
             "comments": commentsArray
         }),
         (err) => {
-        if (err) next(err);
-        res.send({message: "Review saved"});
-    });
+            if (err) {
+                console.error(err);
+                next(err);
+            }
+            res.send({message: "Review saved"});
+        });
 
 });
 
 router.post('/comments', (req, res, next) => {
-    let reviews = fs.readFileSync('app/data/reviews.json', 'utf-8');
+    let reviews;
+    try {
+        reviews = readJsonFile(res);
+
+    }catch(err){
+        console.error(err);
+        next(err);
+    };
     const reviewsArray = JSON.parse(reviews).reviews;
     const commentsArray = JSON.parse(reviews).comments;
     let lastId = commentsArray.length > 0 ? commentsArray[commentsArray.length - 1].id : 0;
@@ -77,13 +116,23 @@ router.post('/comments', (req, res, next) => {
             "comments": commentsArray
         }),
         (err) => {
-            if (err) next(err);
+            if (err) {
+                console.error(err);
+                next(err);
+            }
             res.send({reviewComments});
         });
 });
 
 router.put('/reviews', (req, res, next) => {
-    let reviews = fs.readFileSync('app/data/reviews.json', 'utf-8');
+    let reviews;
+    try {
+        reviews = readJsonFile(res);
+
+    }catch(err){
+        console.error(err);
+        next(err);
+    };
     const reviewsArray = JSON.parse(reviews).reviews;
     const commentsArray = JSON.parse(reviews).comments;
     let updatedReviewIndex = reviewsArray.map(review => review.id).indexOf(req.body.id);
@@ -95,15 +144,23 @@ router.put('/reviews', (req, res, next) => {
             "comments": commentsArray
         }),
         (err) => {
-            if (err) next(err);
-            res.send({message: "Vote registered"});
+            if (err) {
+                console.error(err);
+                next(err);
+            }
+            res.send({message: "Review vote registered"});
         });
 });
 
 router.put('/comments', (req, res, next) => {
-    console.log(typeof  req.body);
-    console.log(req.body);
-    let reviews = fs.readFileSync('app/data/reviews.json', 'utf-8');
+    let reviews;
+    try {
+        reviews = readJsonFile(res);
+
+    }catch(err){
+        console.error(err);
+        next(err);
+    };
     const reviewsArray = JSON.parse(reviews).reviews;
     const commentsArray = JSON.parse(reviews).comments;
     let updatedCommentIndex = commentsArray.map(comment => comment.id).indexOf(req.body.id);
@@ -115,8 +172,11 @@ router.put('/comments', (req, res, next) => {
             "comments": updatedCommentsArray
         }),
         (err) => {
-            if (err) next(err);
-            res.send({message: "Vote registered"});
+            if (err) {
+                console.error(err);
+                next(err);
+            }
+            res.send({message: "Comment vote registered"});
         });
 });
 

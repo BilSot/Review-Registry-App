@@ -1,64 +1,40 @@
 {
   "reviews": [
     {
-      "id": 1,
-      "title": "Test title",
-      "content": "test content",
       "user": {
-        "name": "Mitsos",
-        "email": "test@test.com"
+        "name": "Tom",
+        "email": "tom@test.com"
       },
-      "rating": 3,
-      "votes": 4,
-      "date": "27-11-2020"
+      "title": "Great app",
+      "content": "Keep the good work",
+      "date": "2020-12-03T20:54:43.029Z",
+      "rating": 4,
+      "votes": 2,
+      "id": 1
     },
     {
       "user": {
         "name": "Barbara",
         "email": "barbara@test.com"
       },
-      "title": "Great app",
-      "content": "Awesome work",
-      "date": "2020-11-28T22:00:53.063Z",
-      "rating": 4,
-      "votes": 0,
+      "title": "You could do better",
+      "content": "It crashes every now and then! Fix it ASAP!",
+      "date": "2020-12-03T20:56:30.674Z",
+      "rating": 2,
+      "votes": -1,
       "id": 2
     },
     {
       "user": {
-        "name": "Tom",
-        "email": "tom@test.com"
+        "name": "Peter",
+        "email": "peter@test.com"
       },
-      "title": "Nice app",
-      "content": "Keep up the good work",
-      "date": "2020-11-28T23:53:03.855Z",
-      "rating": 4,
-      "votes": 0,
+      "title": "Review with very long text....",
+      "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\nThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+      "date": "2020-12-03T20:59:15.498Z",
+      "rating": 3,
+      "votes": 1,
       "id": 3
-    },
-    {
-      "user": {
-        "name": "Frank",
-        "email": "frank@test.com"
-      },
-      "title": "Awful",
-      "content": "It's very bad",
-      "date": "2020-11-28T23:57:24.303Z",
-      "rating": 1,
-      "votes": 0,
-      "id": 4
-    },
-    {
-      "user": {
-        "name": "Natalia",
-        "email": "natalia@test.com"
-      },
-      "title": "Great app",
-      "content": "I love it !",
-      "date": "2020-11-29T00:44:32.544Z",
-      "rating": 4,
-      "votes": 0,
-      "id": 5
     }
   ],
   "comments": [
@@ -67,80 +43,36 @@
         "name": "Biljana",
         "email": "biljana@test.com"
       },
-      "content": "I agree Natalia !",
-      "date": "2020-11-29T00:46:47.843Z",
-      "review_id": 5,
+      "content": "They did a pretty good job indeed!",
+      "date": "2020-12-03T20:55:29.058Z",
+      "review_id": 1,
+      "upvotes": 1,
+      "downvotes": 0,
       "id": 1
     },
     {
       "user": {
-        "name": "Mark",
-        "email": "mark@test.com"
+        "name": "Nicholas",
+        "email": "nicholas@test.com"
       },
-      "content": "They could do better",
-      "date": "2020-11-29T00:51:50.659Z",
+      "content": "It's probably your phone that doesn't work well...",
+      "date": "2020-12-03T20:57:26.234Z",
       "review_id": 2,
+      "upvotes": 0,
+      "downvotes": 1,
       "id": 2
     },
     {
       "user": {
-        "name": "Mark",
-        "email": "mark@test.com"
+        "name": "Helen",
+        "email": "helen@test.com"
       },
-      "content": "They could do better",
-      "date": "2020-11-29T00:54:50.659Z",
+      "content": "Some very long comment here too....\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      "date": "2020-12-03T21:00:28.434Z",
       "review_id": 3,
+      "upvotes": 1,
+      "downvotes": 0,
       "id": 3
-    },
-    {
-      "user": {
-        "email": "test@test.com",
-        "name": "Some user"
-      },
-      "content": "bla bla bla",
-      "date": "2020-11-29T00:56:18.795Z",
-      "review_id": 1,
-      "id": 4
-    },
-    {
-      "user": {
-        "name": "Barbara",
-        "email": "barbara@test.com"
-      },
-      "content": "test test test",
-      "date": "2020-11-29T01:17:04.816Z",
-      "review_id": 1,
-      "id": 5
-    },
-    {
-      "user": {
-        "name": "Bob",
-        "email": "bob@test.com"
-      },
-      "content": "I totally agree !",
-      "date": "2020-11-29T01:20:17.496Z",
-      "review_id": 4,
-      "id": 6
-    },
-    {
-      "user": {
-        "name": "Natalia",
-        "email": "natalia@test.com"
-      },
-      "content": "I agree Barbara!",
-      "date": "2020-11-29T01:25:38.591Z",
-      "review_id": 2,
-      "id": 7
-    },
-    {
-      "user": {
-        "name": "Tom",
-        "email": "tom@test.com"
-      },
-      "content": "What exactly didn't you like?",
-      "date": "2020-11-29T14:14:55.581Z",
-      "review_id": 4,
-      "id": 8
     }
   ]
 }

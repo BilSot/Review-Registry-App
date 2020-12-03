@@ -1,0 +1,7 @@
+<div class="commentRating">
+    <span class="commentVote">{{comment.upvotes}}</span>
+    <span class="commentVote" id="upvote" ng-click="addVote(comment, 'upvote')">&#x1F44D;</span>
+    <span class="commentVote">|</span>
+    <span class="commentVote" id="downvote" ng-click="addVote(comment, 'downvote')">&#x1F44E;</span>
+    <span class="commentVote">{{comment.downvotes}}</span>
+</div>
