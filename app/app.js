@@ -4,8 +4,6 @@ const reviewApp = angular.module('reviewApp', [
     'ngSanitize'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
-    $routeProvider.when('/', {
-    });
     $routeProvider.when('/new-feedback', {
         templateUrl: './templates/new-feedback.html',
         controller: 'NewFeedbackController'
