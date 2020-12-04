@@ -26,5 +26,28 @@ app.get('*', (req, res) => {
     res.sendFile(`${rootPath}/index.html`);
 });
 
-app.listen(8000);
+var port = normalizePort(process.env.PORT || '8000');
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+    let port = parseInt(val, 10);
+
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+
+    return false;
+}
+app.set('port', port);
+app.listen(port);
+
 console.log("server running on port 8000");
